@@ -27,7 +27,7 @@ SECRET_KEY = '58%r3*1o1g+ue7*lonok4lxmbk(o0thycdq+fl6$+&th7(xk8k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'mysterious-journey-34770.herokuapp.com']
 
 
 # Application definition
