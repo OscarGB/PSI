@@ -27,7 +27,7 @@ SECRET_KEY = '58%r3*1o1g+ue7*lonok4lxmbk(o0thycdq+fl6$+&th7(xk8k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'mysterious-journey-34770.herokuapp.com']
+ALLOWED_HOSTS = [u'fathomless-waters-52561.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -130,8 +130,17 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [STATIC_DIR, ]
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi')
+ATABASES={}
+if os.getenv('SQLITE',False):
+	DATABASES['default'] = {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
+else:
+	import dj_database_url
+	DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi')
 STATIC_ROOT = 'staticfiles'
