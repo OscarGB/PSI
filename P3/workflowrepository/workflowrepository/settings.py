@@ -27,7 +27,7 @@ SECRET_KEY = '*b9@&zd6*m@6&*gda&nv(ujthg$!2z74=kfg*uzb*ylbkvm8kk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', u'https://peaceful-ravine-34653.herokuapp.com/']
 
 
 # Application definition
@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'workflowrepository.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'workflowrepository',
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'workflowrepository',
 	'USER': 'alumnodb',
 	'PASSWORD': 'alumnodb',
 	'HOST': 'localhost',
@@ -130,3 +130,17 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [STATIC_DIR, ]
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticHeroku')
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES={}
+if os.getenv('SQLITE',False):
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+else:
+    import dj_database_url
+    DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi')
+STATIC_ROOT = 'staticfiles'

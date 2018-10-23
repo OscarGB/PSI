@@ -9,6 +9,7 @@ class CateegoryAdmin(admin.ModelAdmin):
 	list_display = ['name', 'slug']
 
 class WorkflowAdmin(admin.ModelAdmin):
+	prepopulated_fields = {"slug":("name",)}
 	list_display = ['name', 'slug', 'views', 'downloads', 'client_ip', 'created']
 	pass
 
