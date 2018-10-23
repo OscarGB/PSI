@@ -27,7 +27,7 @@ SECRET_KEY = '*b9@&zd6*m@6&*gda&nv(ujthg$!2z74=kfg*uzb*ylbkvm8kk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', u'https://peaceful-ravine-34653.herokuapp.com/']
+ALLOWED_HOSTS = [u'peaceful-ravine-34653.herokuapp.com', 'localhost', u'127.0.0.1']
 
 
 # Application definition
@@ -143,4 +143,4 @@ if os.getenv('SQLITE',False):
 else:
     import dj_database_url
     DATABASES['default']= dj_database_url.config(default='postgres://alumnodb:alumnodb@localhost:5432/psi')
-STATIC_ROOT = 'staticfiles'
+# STATIC_ROOT = 'staticfiles'
