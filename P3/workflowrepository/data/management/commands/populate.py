@@ -49,7 +49,10 @@ deserunt mollit anim id est laborum."""[init:end]
     # handle is another compulsory name, This function will be
     # executed by default
     def handle(self, *args, **options):
-        self.cleanDatabase()
+        try:
+            self.cleanDatabase()
+        except Exception as e:
+            pass
         self.addCategory(5) # add 5 categories
         self.addWorkflow(13) # add 13 workflows
 

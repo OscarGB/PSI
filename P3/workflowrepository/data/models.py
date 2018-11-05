@@ -11,7 +11,7 @@ class Category(models.Model):
 	name_max_length = 128
 	name = models.CharField(max_length=name_max_length, unique=True)
 	slug = models.SlugField(unique=True)
-	created = models.DateTimeField(blank=True, auto_now_add = True)
+	created = models.DateField(blank=True, auto_now_add = True)
 	tooltip = models.CharField(max_length=name_max_length)
 	
 	def save(self, *args, **kwargs):
@@ -40,8 +40,8 @@ class Workflow(models.Model):
 	category = models.ManyToManyField(Category)
 	client_ip = models.GenericIPAddressField()
 	keywords = models.CharField(max_length=keywords_max_length)
-	json = JSONField()
-	created = models.DateTimeField(blank=True, auto_now_add = True)
+	json = models.TextField()
+	created = models.DateField(blank=True, auto_now_add = True)
 	
 	
 	def save(self, *args, **kwargs):
