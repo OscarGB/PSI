@@ -84,7 +84,7 @@ deserunt mollit anim id est laborum."""[init:end]
         json = self.getJson()
         for a in range(noWorkflows):
             cat = Category.objects.all()[0]
-            el = Workflow.objects.create(name=WORKFLOW+str(a), description=str(a), versionInit=str(a+100),
+            el = Workflow.objects.create(name=WORKFLOW+str(a), description=self.getParragraph(0,100), versionInit=str(a+100),
                 client_ip="192.68.0.1", keywords="k"+str(a), json=json)
             el.category=[cat, ]
             el.save()

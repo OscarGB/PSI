@@ -1,0 +1,42 @@
+
+{% extends 'find/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}help{% endblock %}
+
+{% block content %}
+    <div id="content">
+        
+<div class="pure-g" xmlns:find="http://www.w3.org/1999/xhtml">
+
+   <div id="sidebar" class="pure-u-1-5">
+        <h3>Categories</h3>
+        <ul>
+            <li >
+                <a href="/find/workflow_list/">All</a>
+            </li>
+            {% for cat in categories %}
+            <li >
+                <a title="/find/tooltip_{{ cat.slug }}" href="/workflow_list/{{ cat.slug }}/">{{ cat.name }}</a>
+            </li>        
+            {% endfor %}
+        
+
+        </ul>
+    </div>
+    <div id="main" class="workflow-list pure-u-4-5">
+    
+        <p>help goes here</p>
+        
+
+                
+
+
+    
+
+    </div>
+</div> <!-- grid -->
+
+    </div>
+    {% endblock %}
