@@ -1,0 +1,4 @@
+Somos la pareja que tuvimos problemas en el test.
+Hemos definido dos aplicaciones, una llamada data que es la que modela todo el comportamiento de la base de datos, la otra, llamada find, se encarga de las visualización de la aplicación. 
+Las dificultades que hemos tenido con esta práctica han sido por culpa de la modelización de los datos, para el campo json de un workflow utilizabamos un JSONField, elemento exclusivo de postgresql, por lo que al correr los tests con SQLite en heroku fallaban.
+Por ello hemos decidido modificarlo a un TextField.
