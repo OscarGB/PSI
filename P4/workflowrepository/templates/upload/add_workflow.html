@@ -1,0 +1,25 @@
+{% extends 'find/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Add Workflow{% endblock %}
+
+{% block content %}
+
+<h1>Add a Workflow</h1>
+	<div>
+		<form id="category_form" method="post" action="." enctype="multipart/form-data">
+			{% csrf_token %}
+			{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+			{% endfor %}
+			{% for field in form.visible_fields %}
+				{{ field.errors }}
+				{{ field.help_text }}
+				{{ field }}
+				<br><br>
+			{% endfor %}
+			<input type="submit" name="submit_workflow" value="Create Workflow" />
+		</form>
+	</div>
+{% endblock%}

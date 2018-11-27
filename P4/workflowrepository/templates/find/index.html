@@ -1,0 +1,45 @@
+
+
+{% extends 'find/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+    <div id="content">
+        
+<div class="pure-g" xmlns:find="http://www.w3.org/1999/xhtml">
+
+   <div id="sidebar" class="pure-u-1-5">
+        <h3>Categories</h3>
+        <ul>
+            <li class="selected">
+                <a href="/find/workflow_list/">All</a>
+            </li>
+        {% for category in categories %}
+            <li >
+                <a title="/find/tooltip_{{ category.slug }}" href="/find/workflow_list/{{ category.slug }}/">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+         <li>
+                <a href="/upload/add_workflow/"">Upload workflow</a>
+            </li>
+        </ul>
+    </div>
+    <div id="main" class="workflow-list pure-u-4-5">
+    
+        <h1>Workflows</h1>
+
+    {% for workflow in workflows %}
+            <div class="item"><p>
+                <a href="/find/workflow_detail/1/{{ workflow.slug }}/">{{ workflow.name }}</a>:
+               {{ workflow.description}}</p>
+            </div>
+    {% endfor %}
+
+    </div>
+</div> <!-- grid -->
+
+    </div>
+{% endblock %}
