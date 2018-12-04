@@ -217,7 +217,6 @@ deserunt mollit anim id est laborum."""[init:end]
         "numberOfThreads": 1,
         "numberOfMpi": 1,
         "ctfRelations": "82.__attribute__outputCTF",
-        "inputCoordinates": "123.__attribute__outputCoordinates",
         "inputMicrographs": "369.outputMicrographs"
     },
     {
